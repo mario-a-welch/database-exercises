@@ -28,3 +28,15 @@ WHERE artist = 'Michael Jackson';
 
 SELECT 'All albums from Peter Jackson' AS 'RESULTS';
 SELECT album_name, artist FROM albums WHERE artist = 'Peter Jackson';
+
+#Index Exercise
+DESCRIBE albums;
+
+SELECT * FROM albums;
+
+ALTER TABLE albums
+    ADD UNIQUE artist_albumName(artist, album_name);
+
+#Does not work due to adding Unique Key Identifier
+# INSERT INTO albums(artist, album_name, release_date, sales, genre)
+# VALUES ('AC/DC', 'Back in Black', 1980, 26.1, 'Hard rock');
