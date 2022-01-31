@@ -41,11 +41,18 @@ FROM users
 JOIN roles on users.role_id = roles.id;
 
 #LEFT JOIN
+#Will display all  user name data from the left table for a total of 10
 SELECT users.name as user_name, roles.name as role_name
 FROM users
 LEFT JOIN roles on users.role_id = roles.id;
 
 #RIGHT JOIN
+#Will display all role names from the right table for a total of 8
 SELECT users.name as user_name, roles.name as role_name
 FROM users
 RIGHT JOIN roles on users.role_id = roles.id;
+
+SELECT roles.name AS role, COUNT(user.role_id) AS number_Of_Roles
+FROM roles
+LEFT JOIN users user on roles.id = user.role_id
+GROUP BY roles.name;

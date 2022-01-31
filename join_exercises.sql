@@ -7,7 +7,8 @@ FROM employees
             ON dept_manager.emp_no = employees.emp_no
         JOIN departments
             ON departments.dept_no = dept_manager.dept_no
-WHERE dept_manager.to_date LIKE '9999%';
+WHERE dept_manager.to_date LIKE '9999%'
+ORDER BY departments.dept_name;
 
 #Shows all departments currently managed by women
 SELECT departments.dept_name AS Department_Name, CONCAT(employees.first_name, ' ', employees.last_name) AS Department_Manager
@@ -16,8 +17,9 @@ FROM employees
             ON dept_manager.emp_no = employees.emp_no
          JOIN departments
             ON departments.dept_no = dept_manager.dept_no
-WHERE dept_manager.to_date LIKE '9999'
-AND employees.gender = 'F';
+WHERE dept_manager.to_date LIKE '9999%'
+AND employees.gender = 'F'
+ORDER BY departments.dept_name;
 
 #Shows current titles of employees currently working in the Customer Service department
 SELECT titles.title AS title, COUNT(titles.title) AS Total
@@ -39,7 +41,8 @@ FROM employees
         JOIN departments
             ON departments.dept_no = dept_manager.dept_no
 WHERE dept_manager.to_date LIKE '9999%'
-AND salaries.to_date LIKE '9999%';
+AND salaries.to_date LIKE '9999%'
+ORDER BY departments.dept_name;
 
 #Bonus
 #Shows the names of all current employees, their department name, and their current managers name
